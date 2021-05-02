@@ -11,6 +11,7 @@ import { MessagesComponent } from './messages/messages.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { AuthGuard } from './_guards/auth.guard';
 import { PreventUnsavedChangesGuard } from './_guards/prevent-unsaved-changes.guard';
+import { MemberDetailResolver } from './_resolvers/member-detail.resolver';
 
 const routes: Routes = [
   {
@@ -29,7 +30,7 @@ const routes: Routes = [
       },
       {
         path: 'members/:username', 
-        component: MemberDetailComponent
+        component: MemberDetailComponent, resolve: {member: MemberDetailResolver}
       },
       {
         path: 'member/edit', 
