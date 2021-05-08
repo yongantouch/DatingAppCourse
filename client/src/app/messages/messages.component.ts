@@ -16,10 +16,13 @@ export class MessagesComponent implements OnInit {
   pageSize = 5;
   loading = true;
 
-  constructor(private messageService: MessageService) { }
+  constructor(public messageService: MessageService) { }
 
   ngOnInit(): void {
     this.loadMessages();
+    this.messageService.messageThread$.subscribe(messages => {
+      console.log(messages);
+    })
   }
 
   loadMessages(){
