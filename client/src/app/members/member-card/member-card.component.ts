@@ -14,6 +14,7 @@ export class MemberCardComponent implements OnInit {
   constructor(private memberService: MemberService, private toast: ToastrService) { }
 
   ngOnInit(): void {
+    
   }
 
   addLike(member: Member){
