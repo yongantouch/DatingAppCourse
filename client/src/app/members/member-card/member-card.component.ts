@@ -16,7 +16,7 @@ export class MemberCardComponent implements OnInit {
     public presenceService: PresenceService) { }
 
   ngOnInit(): void {
-    
+    console.log(this.member);
   }
 
   addLike(member: Member){

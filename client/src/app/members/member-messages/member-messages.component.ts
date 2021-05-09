@@ -14,6 +14,7 @@ export class MemberMessagesComponent implements OnInit {
   @Input() username: string;
   @Input() messages: Message[];
   messageContent: string;
+  loading = false;
 
   constructor(public messageService: MessageService) { }
 
@@ -27,9 +28,9 @@ export class MemberMessagesComponent implements OnInit {
     //   this.messageForm.reset();
     // }) // use with api controller
 
+    this.loading = true;
     this.messageService.sendMessage(this.username, this.messageContent).then(() =>{
-
       this.messageForm.reset();
-    });
+    }).finally(() => this.loading=false);
   }
 }
